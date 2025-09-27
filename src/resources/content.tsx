@@ -295,17 +295,17 @@ const gallery: Gallery = {
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/horizontal-3.jpg",
+      src: "/images/gallery/sparklearn.png",
+      alt: "image",
+      orientation: "vertical",
+    },
+    {
+      src: "/images/gallery/odc-inside.png",
       alt: "image",
       orientation: "horizontal",
     },
     {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
+      src: "/images/gallery/barakaS4.png",
       alt: "image",
       orientation: "vertical",
     },
