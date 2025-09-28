@@ -61,7 +61,7 @@ const home: Home = {
   featured: {
     display: true,
     title: (
-      <>Projet vedette</>
+      <>Portofolio à 35% !</>
     ),
     href: "/work/building-once-ui-a-customizable-design-system",
   },
