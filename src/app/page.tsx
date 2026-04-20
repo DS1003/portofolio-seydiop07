@@ -1,14 +1,18 @@
-import React from "react";
+"use client";
 
-import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, Meta, Schema } from "@once-ui-system/core";
-import { home, about, person, newsletter, baseURL, routes } from "@/resources";
+import React from "react";
+import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, Schema } from "@once-ui-system/core";
+import { home, about, person, newsletter, baseURL } from "@/resources";
 import { Mailchimp } from "@/components";
 import { Projects } from "@/components/work/Projects";
-import { Posts } from "@/components/blog/Posts";
+import { Services } from "@/components/sections/Services";
+import { Contact } from "@/components/sections/Contact";
+import { motion } from "framer-motion";
+import { MoveRight, Briefcase } from "lucide-react";
 
 export default function Home() {
   return (
-    <Column maxWidth="m" gap="xl" horizontal="center">
+    <Column maxWidth="m" gap="xl" horizontal="center" style={{ position: 'relative', overflow: 'hidden' }}>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -22,53 +26,117 @@ export default function Home() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Column fillWidth paddingY="24" gap="m">
-        <Column maxWidth="s">
+      
+      {/* Background Gradient Animation */}
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.1, 0.2, 0.1],
+          rotate: [0, 90, 0]
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        style={{
+          position: "absolute",
+          top: "-20%",
+          left: "-10%",
+          width: "140%",
+          height: "140%",
+          background: "radial-gradient(circle, rgba(160, 20, 240, 0.15) 0%, rgba(0, 0, 0, 0) 60%)",
+          zIndex: -1,
+          pointerEvents: "none",
+        }}
+      />
+
+      <Column fillWidth paddingY="24" gap="l" style={{ zIndex: 1 }}>
+        <Column maxWidth="m">
           {home.featured.display && (
-          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
-            <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false}
-              href={home.featured.href}>
-              <Row paddingY="2">{home.featured.title}</Row>
-            </Badge>
-          </RevealFx>
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
+                <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false} href={home.featured.href}>
+                  <Row paddingY="2">{home.featured.title}</Row>
+                </Badge>
+              </RevealFx>
+            </motion.div>
           )}
-          <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
-            <Heading wrap="balance" variant="display-strong-l">
-              {home.headline}
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            style={{ paddingBottom: "16px" }}
+          >
+            <Heading wrap="balance" variant="display-strong-xl" style={{ lineHeight: "1.1" }}>
+              {home.headline} <motion.span animate={{ opacity: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>|</motion.span>
             </Heading>
-          </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            style={{ paddingBottom: "32px", paddingLeft: "4px" }}
+          >
             <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
               {home.subline}
             </Text>
-          </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12">
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            style={{ paddingLeft: "12px", display: "flex", gap: "16px", flexWrap: "wrap" }}
+          >
             <Button
-              id="about"
+              id="view-projects"
               data-border="rounded"
-              href={about.path}
-              variant="secondary"
-              size="m"
+              href="#projects"
+              variant="primary"
+              size="l"
               weight="default"
-              arrowIcon
             >
               <Flex gap="8" vertical="center" paddingRight="4">
-                {about.avatar.display && (
-                  <Avatar
-                    marginRight="8"
-                    style={{ marginLeft: "-0.75rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.title}
+                Voir les Projets
+                <MoveRight size={18} />
               </Flex>
             </Button>
-          </RevealFx>
+            <Button
+              id="hire-me"
+              data-border="rounded"
+              href="#contact"
+              variant="secondary"
+              size="l"
+              weight="default"
+            >
+              <Flex gap="8" vertical="center" paddingRight="4">
+                Me Recruter
+                <Briefcase size={18} />
+              </Flex>
+            </Button>
+          </motion.div>
         </Column>
       </Column>
-  {/* Section blog supprimée à la demande de l'utilisateur */}
-      {/* <Projects range={[2]} /> */}
+
+      <div id="projects" style={{ width: "100%", scrollMarginTop: "100px" }}>
+        <Projects />
+      </div>
+
+      <div id="services" style={{ width: "100%", scrollMarginTop: "100px" }}>
+        <Services />
+      </div>
+
+      <div id="contact" style={{ width: "100%", scrollMarginTop: "100px" }}>
+        <Contact />
+      </div>
+
       {newsletter.display && <Mailchimp newsletter={newsletter} />}
     </Column>
   );

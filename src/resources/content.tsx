@@ -14,11 +14,10 @@ const person: Person = {
 
 const newsletter: Newsletter = {
   display: true,
-  title: <>Subscribe to {person.name}'s Newsletter</>,
+  title: <>Abonnez-vous à la newsletter de {person.name}</>,
   description: (
     <>
-      I occasionally write about design, technology, and share thoughts on the
-      intersection of creativity and engineering.
+      J'écris occasionnellement sur le design, la technologie, et je partage mes réflexions sur l'intersection entre la créativité et l'ingénierie.
     </>
   ),
 };
@@ -54,14 +53,14 @@ const social: Social = [
 const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
-  label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <> Let’s Build The Digital Future !!! 🚀🧩💻</>,
+  label: "Accueil",
+  title: `Portfolio de ${person.name}`,
+  description: `Site web portfolio présentant mon travail en tant que ${person.role}`,
+  headline: <>Construisons le Futur Numérique 🚀🧩💻</>,
   featured: {
     display: true,
     title: (
-      <>Portofolio à 35% !</>
+      <>77%...</>
     ),
     href: "/work/building-once-ui-a-customizable-design-system",
   },
@@ -74,9 +73,9 @@ const home: Home = {
 
 const about: About = {
   path: "/about",
-  label: "About",
-  title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  label: "À propos",
+  title: `À propos – ${person.name}`,
+  description: `Découvrez ${person.name}, ${person.role} de ${person.location}`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -93,7 +92,12 @@ const about: About = {
     title: "Présentation",
     description: (
       <>
-        Designer UI/UX passionné, je combine créativité et expertise technique pour concevoir des interfaces modernes, intuitives et esthétiques. Avec plusieurs années d’expérience en design digital, je maîtrise Figma, Adobe XD et les technologies web pour créer des expériences utilisateur engageantes et optimisées. Mon approche repose sur une compréhension approfondie des besoins des utilisateurs et des tendances actuelles en UI/UX. J’ai travaillé sur divers projets web et mobiles, en intégrant wireframes, prototypes interactifs et parcours utilisateurs optimisés. Mon sens du détail et ma collaboration étroite avec les développeurs garantissent une exécution fluide et efficace de chaque projet.
+        Bonjour, je suis Seydina. Je combine la logique de l'ingénierie avec l'intuition du design.
+        En tant que Développeur FullStack et Lead UI/UX Designer, je ne me contente pas d'écrire du code — je conçois des expériences numériques qui connectent les gens.
+        <br /><br />
+        Mon parcours est animé par une profonde curiosité pour le fonctionnement des choses et les émotions qu'elles suscitent. De l'architecture de systèmes backend robustes à l'affinage des micro-interactions dans une interface utilisateur, j'adopte une approche holistique pour la création de produits.
+        <br /><br />
+        Qu'il s'agisse de donner vie à la vision d'une startup ou de transformer le flux de travail d'une entreprise, je me concentre sur la livraison de solutions évolutives et performantes qui sont aussi belles que fonctionnelles. Créons ensemble quelque chose d'impactant.
       </>
     ),
   },
@@ -266,26 +270,26 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
+  title: "Écrire sur le design et la tech...",
+  description: `Découvrez ce que ${person.name} a fait récemment`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
 };
 
 const work: Work = {
   path: "/work",
-  label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
+  label: "Projets",
+  title: `Projets – ${person.name}`,
+  description: `Projets de design et de développement de ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
 };
 
 const gallery: Gallery = {
   path: "/gallery",
-  label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
+  label: "Galerie",
+  title: `Galerie de photos – ${person.name}`,
+  description: `Une collection de photos par ${person.name}`,
   // Images by https://lorant.one
   // These are placeholder images, replace with your own
   images: [
